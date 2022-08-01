@@ -1,27 +1,26 @@
 <template>
 <div id="app" class="container">
   <h1 class="text-center">Todo App</h1>
-  <input v-model="todoText"
-         type="text" 
-         class="w-100"
-         placeholder="Type todo"
-         @keyup.enter="addTodo">
+  <AddTodo @add-todo="addTodo"/>
   <hr>
-   <Todo v-for ="todo in todos"
-         :key="todo.id"
-         :todo="todo"
+  <TodoList 
+         :todos="todos"
          @toggle-checkbox="toggleCheckBox"
-         @click-delete="deleteTodo"/>
-{{todos}}
+         @click-delete="deleteTodo"
+         />
+         {{todos}}
 </div>
 </template>
 
 <script>
-import Todo from '@/components/Todo.vue';
+import TodoList from '@/components/TodoList.vue';
+import AddTodo from '@/components/AddTodo.vue';
+
 export default {
-  components:{
-    Todo
-  },
+  components: {
+    TodoList,
+    AddTodo
+    },
    data(){
         return{
             todoText:'',

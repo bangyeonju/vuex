@@ -23,7 +23,7 @@
 <script>
 export default {
     props:{
-        todo : {
+        todo : {    
             type : Object,
             required : true //필수
         }
